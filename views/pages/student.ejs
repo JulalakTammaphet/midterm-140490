@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>Student</h1>
+    <table class="table table-striped" class="table">
+        <thead>
+            <tr>
+                <th>StudentID</th>
+                <th>StudentName</th>
+                <th>Major</th>
+                <th>Faculty</th>
+                <th>Subject</th>
+                <th><a name="button" id="button" class="btn btn-primary" href="/student/create<%= s.StudentID %>"
+                        role="button">
+                        Add New Student
+                    </a></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(function(s){ %>
+            <tr>
+                <td><%= s.StudentID %></td>
+                <td><%= s.StudentName %></td>
+                <td><%= s.Major %></td>
+                <td><%= s.Faculty %></td>
+                <td><%= s.Subject %></td>
+                <td scope="row">
+                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
+                        role="button">
+                        View
+                    </a>
+                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
+                        role="button">
+                        Edit
+                    </a>
+                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
+                        role="button">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr><% }); %>
+        </tbody>
+    </table>
+</div>
+
+<% include ../partials/footer %>

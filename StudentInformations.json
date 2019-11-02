@@ -1,0 +1,84 @@
+{
+    "studentinformations": [
+        {
+            "sid": "6030213004",
+            "name": "MR. NUTTAKORN TANSENG",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213005",
+            "name": "MR. PISIT KAEWFUNG",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213008",
+            "name": "MR. KRICH KOYDOON",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213009",
+            "name": "MR. YODSAKORN PANSIT",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213010",
+            "name": "MR. NANTIPAT SUWANVONG",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213016",
+            "name": "MR. NATTAPONG ANUPAT",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213020",
+            "name": "MISS JULALAK TAMMAPHET",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    {
+            "sid": "6030213023",
+            "name": "MR. KARIN PIMLOY",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+
+    {
+            "sid": "6030213024",
+            "name": "MR. SOMPOT EIAMWORAKUL",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        },
+    
+    
+    {
+            "sid": "6030213032",
+            "name": "MR. CHAYUT AUITAKUL",
+            "major": "SOFTWARE ENGINEERING",
+            "faculty": "Collage Of Computing",
+            "subject": "140-390 Full-Stack Web Development with JavaScript Frameworks"
+        }
+    ]
+}
