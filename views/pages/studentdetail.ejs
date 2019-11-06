@@ -1,39 +1,36 @@
 <% include ../partials/header %>
-<div class="container">
-    <h1> <%= detail.StudentName %></h1>
+    <div class="container">
+        <h1 class="display-3">
+            <%= detail.StudentName %>
+        </h1>
 
-    <div class="form-group">
-        <label for=" ">StudentID></label>
-        <input type="text" value="<%= detail.sid %>" readonly class="form-control" name="" id=""
-            aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <div class="form-group">
-        <label for=" ">StudentName></label>
-        <input type="text" value="<%= detail.name %>" readonly class="form-control" name="" id=""
-            aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <div class="form-group">
-        <label for=" ">Major></label>
-        <input type="text" value="<%= detail.major %>" readonly class="form-control" name="" id=""
-            aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <div class="form-group">
-        <label for=" " >Faculty></label>
-        <input type="text" value="<%= detail.faculty %>" readonly class="form-control" name="" id=""
-            aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-    <div class="form-group">
-        <label for=" ">Subject></label>
-        <input type="text" value="<%= detail.subject %>" readonly class="form-control" name="" id=""
-            aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-     <a name="" id="" class="btn btn-primary" href="/student" role="button">Back</a>
-     
-</div>
+        <div class="form-group">
+            <label for="sID">StudentID></label>
+            <input type="text" value="<%= detail.sid %>" readonly class="form-control" name="sid" id="sID" aria-describedby="helpId">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="sName">StudentName></label>
+            <input type="text" value="<%= detail.name %>" readonly class="form-control" name="name" id="sName" aria-describedby="helpId">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="sMajor">Major></label>
+            <input type="text" value="<%= detail.major %>" readonly class="form-control" name="major" id="sMajor" aria-describedby="helpId">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="sFac">Faculty></label>
+            <input type="text" value="<%= detail.faculty %>" readonly class="form-control" name="faculty" id="sFac" aria-describedby="helpId">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+            <label for="sSub">Subject></label>
+            <input type="text" value="<%= detail.subject %>" readonly class="form-control" name="subject" id="sSub" aria-describedby="helpId">
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <a class="btn btn-primary" href="/student">Back</a>
 
-<% include ../partials/footer %>
+    </div>
+
+    <% include ../partials/footer %>

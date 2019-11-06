@@ -1,0 +1,38 @@
+<%include ../partials/header%>
+    <div class="container">
+        <form action="/studentsave" method="post">
+            <h1 class="display-3">Edit Student (id:
+                <%= detail.sid %>)</h1>
+            <h3>
+                <%= detail.name %>
+            </h3>
+            <div class="form-group">
+                <label for="sID">StudentID></label>
+                <input type="text" value="<%= detail.sid %>" readonly class="form-control" name="sid" id="sID" aria-describedby="helpId01">
+                <small id="helpId01" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="sName">StudentName></label>
+                <input type="text" value="<%= detail.name %>" readonly class="form-control" name="name" id="sName" aria-describedby="helpId02">
+                <small id="helpId02" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="sMajor">Major></label>
+                <input type="text" value="<%= detail.major %>" readonly class="form-control" name="major" id="sMajor" aria-describedby="helpId">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="sFac">Faculty></label>
+                <input type="text" value="<%= detail.faculty %>" readonly class="form-control" name="faculty" id="sFac" aria-describedby="helpId">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <div class="form-group">
+                <label for="sSub">Subject></label>
+                <input type="text" value="<%= detail.subject %>" readonly class="form-control" name="subject" id="sSub" aria-describedby="helpId">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="/student" class="btn btn-link">Cancel</a>
+        </form>
+    </div>
+    <%include ../partials/footer%>

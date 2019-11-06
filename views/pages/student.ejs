@@ -1,49 +1,76 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <h1>Student</h1>
-    <table class="table table-striped" class="table">
-        <thead>
-            <tr>
-                <th>StudentID</th>
-                <th>StudentName</th>
-                <th>Major</th>
-                <th>Faculty</th>
-                <th>Subject</th>
-                <th><a name="button" id="button" class="btn btn-primary" href="/student/create<%= s.StudentID %>"
-                        role="button">
+    <div class="container">
+        <div class="row">
+            <h1 class="display-3">Student</h1>
+        </div>
+        <div class="row">
+
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">StudentID</th>
+                        <th scope="col">StudentName</th>
+                        <th scope="col">Major</th>
+                        <th scope="col">Faculty</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col" colspan="2">Actions<a name="button" id="button" class="btn btn-primary" href="/student/create<%= s.StudentID %>" role="button">
                         Add New Student
                     </a></th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <% data.forEach(function(s){ %>
-            <tr>
-                <td><%= s.StudentID %></td>
-                <td><%= s.StudentName %></td>
-                <td><%= s.Major %></td>
-                <td><%= s.Faculty %></td>
-                <td><%= s.Subject %></td>
-                <td scope="row">
-                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
-                        role="button">
-                        View
-                    </a>
-                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
-                        role="button">
-                        Edit
-                    </a>
-                    <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>"
-                        role="button">
-                        Delete
-                    </a>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% student.forEach(function(s){ %>
+                        <tr>
+                            <th scope="row">
+                                <%= s.StudentID %>
+                            </th>
+                            <td>
+                                <%= s.StudentName %>
+                            </td>
+                            <td>
+                                <%= s.Major %>
+                            </td>
+                            <td>
+                                <%= s.Faculty %>
+                            </td>
+                            <td>
+                                <%= s.Subject %>
+                            </td>
+                            <td>
+                                <a name="button" class="btn btn-info" href="/student/<%= s.StudentID %>" role="button">View </a>
+                                <a name="button" class="btn btn-primary" href="/student/<%= s.StudentID %>" role="button">Edit</a>
+                                <!-- <a name="button" id="button" class="btn btn-primary" href="/student/<%= s.StudentID %>" role="button">Delete</a> -->
 
-                </td>
+                            </td>
+                            <td><button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal<%= s.StudentID %>">Delete</button>
+                                <div class="modal fade" id="exampleModal<%= s.StudentID %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Student Name : "
+                                                <%= s.StudentName %>" Do you want to delete this?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <a href="/student/delete/<%= s.StudentID%>" class="btn btn-primary">Save changes</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
 
-            </tr><% }); %>
-        </tbody>
-    </table>
-</div>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
 
-<% include ../partials/footer %>
+        <% include ../partials/footer %>
