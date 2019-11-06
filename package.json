@@ -10,7 +10,9 @@
   "dependencies": {
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "node": "^12.11.1"
+    "js": "^0.1.0",
+    "node": "^12.11.1",
+    "nodemon": "^1.19.4"
   },
   "devDependencies": {},
   "repository": {
