@@ -13,5 +13,13 @@
     "node": "^12.11.1"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulalakTammaphet/midterm-140490.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JulalakTammaphet/midterm-140490/issues"
+  },
+  "homepage": "https://github.com/JulalakTammaphet/midterm-140490#readme",
   "description": ""
 }
