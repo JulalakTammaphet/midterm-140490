@@ -1,113 +1,156 @@
 var express = require('express');
 var app = express();
-var data = require("./StudentInformations.json");
+// var data = require("./StudentInformations.json");
 
-var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://mean.psu.ac.th:27017/";
-
+var url = "mongodb://localhost:27017/";
 var options = { useUnifiedTopology: true, useNewUrlParser: true };
+var bodyPaser = require('body-parser');
+app.use(bodyPaser.json());
+app.use(bodyPaser.urlencoded({ extended: true }));
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 //Home
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
     res.render('pages/Home');
 });
 
-//Retrieve all students
-app.get("/student", function (req, res) {
-    MongoClient.connect(url, options, function (err, db) {
+app.get('/student/add', function(req, res) {
+    res.render('pages/studentadd');
+});
+
+
+app.get('/student', function(req, res) {
+    MongoClient.connect(url, options, function(err, db) {
         if (err) throw err;
         var dbo = db.db("students");
         var query = {};
-        dbo.collection("StudentInformations").find(query).toArray(function (err, result) {
+        dbo.collection("StudentInformations").find(query).toArray(function(err, result) {
             if (err) throw err;
-            console.log(result);
-            res.render('pages/student', { data : result });
+            //console.log(result);
+            res.render('pages/student', { student: result });
             db.close();
         });
     });
 });
 
-//Create a students
-app.get("/student/:add", function (req, res) {
+
+app.get("/student/detail/:sid", function(req, res) {
     var pid = req.params.sid;
     //Get the class detail from mongodb
-    MongoClient.connect(url, options, function (err, db) {
+    MongoClient.connect(url, options, function(err, db) {
         if (err) throw err;
         var dbo = db.db("students");
         var query = {
-            StudentID : sid
+            StudentID: sid
         };
-        dbo.collection("StudentInformations").findOne(query , function (err, result) {
+        dbo.collection("StudentInformations").findOne(query, function(err, result) {
             if (err) throw err;
             console.log(result);
-            res.render('pages/create', { detail : result });
+            res.render('pages/studentdetail', { detail: result });
             db.close();
         });
     });
 });
-//View a students
-app.get("/studentdetail/:sid", function (req, res) {
+
+app.get("/student/edit/:sid", function(req, res) {
     var pid = req.params.sid;
     //Get the class detail from mongodb
-    MongoClient.connect(url, options, function (err, db) {
+    MongoClient.connect(url, options, function(err, db) {
         if (err) throw err;
         var dbo = db.db("students");
         var query = {
-            StudentID : sid
+            StudentID: sid
         };
-        dbo.collection("StudentInformations").findOne(query , function (err, result) {
+        dbo.collection("StudentInformations").findOne(query, function(err, result) {
             if (err) throw err;
             console.log(result);
-            res.render('pages/studentdetail', { detail : result });
+            res.render('pages/studentedit', { detail: result });
             db.close();
         });
     });
 });
-//Update a students
-app.get("/update/:sid", function (req, res) {
-    var pid = req.params.sid;
-    //Get the class detail from mongodb
-    MongoClient.connect(url, options, function (err, db) {
+
+app.post('/studentsave', function(req, res) {
+    var sID = req.body.sid;
+    var sName = req.body.name;
+    var sMajor = req.body.major;
+    var sFac = req.body.faculty;
+    var sSub = req.body.subject;
+
+    MongoClient.connect(url, options, function(err, db) {
         if (err) throw err;
         var dbo = db.db("students");
         var query = {
-            StudentID : sid
+            sid: sID
+        }
+        var newvalues = {
+            $set: {
+                name: sName,
+                major: sMajor,
+                faculty: sFac,
+                subject: sSub,
+
+            }
         };
-        dbo.collection("StudentInformations").findOne(query , function (err, result) {
-            if (err) throw err;
-            console.log(result);
-            res.render('pages/update', { detail : result });
-            db.close();
-        });
+        dbo.collection('StudentInformations')
+            .updateOne(query, newvalues, function(err, result) {
+                if (err) throw err;
+                console.log("1 doc updated");
+                db.close();
+                res.redirect("/student");
+            });
     });
 });
 
-//Delete a students
-app.get("/delete/:sid", function (req, res) {
-    var pid = req.params.sid;
-    //Get the class detail from mongodb
-    MongoClient.connect(url, options, function (err, db) {
+app.post('/studentadd', function(req, res) {
+    var sID = req.body.sid;
+    var sName = req.body.name;
+    var sMajor = req.body.major;
+    var sFac = req.body.faculty;
+    var sSub = req.body.subject;
+    MongoClient.connect(url, options, function(err, db) {
         if (err) throw err;
         var dbo = db.db("students");
-        var query = {
-            StudentID : sid
+        var query = {};
+        var newClass = {
+            sid: sID,
+            name: sName,
+            major: sMajor,
+            faculty: sFac,
+            subject: sSub
         };
-        dbo.collection("StudentInformations").findOne(query , function (err, result) {
-            if (err) throw err;
-            console.log(result);
-            res.render('pages/student', { detail : result });
-            db.close();
-        });
+        dbo.collection("StudentInformations")
+            .insertOne(newClass, function(err, result) {
+                if (err) throw err;
+                console.log("1 document inserted");
+                db.close();
+                res.redirect("/student");
+            });
     });
 });
 
 
 
-
+app.get("/student/delete/:sid", function(req, res) {
+    var pid = req.params.sid;
+    //Get the class detail from mongodb
+    MongoClient.connect(url, options, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("students");
+        var myquery = {
+            StudentID: sid
+        };
+        dbo.collection("StudentInformations").findOne(myquery, function(err, obj) {
+            if (err) throw err;
+            console.log("1 document deleted");
+            res.redirect("/student");
+            db.close();
+        });
+    });
+});
 
 app.listen(8080);
 console.log('Express started at http://localhost:8080');
