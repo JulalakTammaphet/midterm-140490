@@ -1,34 +1,34 @@
 <%include ../partials/header%>
     <div class="container">
-        <form action="/studentsave" method="post">
+        <form action="/studentadd" method="post">
             <h1 class="display-3">Add A New Student</h1>
 
             <div class="form-group">
-                <label for="sID">StudentID></label>
-                <input type="text" value="<%= detail.sid %>" readonly class="form-control" name="sid" id="sID" aria-describedby="helpId">
+                <label for="sID">StudentID</label>
+                <input type="text" value="" class="form-control" name="sid" id="sID" aria-describedby="helpId">
                 <small id="helpId01" class="form-text text-muted">Help text</small>
             </div>
             <div class="form-group">
-                <label for="sName">StudentName></label>
-                <input type="text" value="<%= detail.name %>" readonly class="form-control" name="name" id="sName" aria-describedby="helpId">
+                <label for="sName">StudentName</label>
+                <input type="text" value="" class="form-control" name="name" id="sName" aria-describedby="helpId">
                 <small id="helpId02" class="form-text text-muted">Help text</small>
             </div>
             <div class="form-group">
-                <label for="sMajor">Major></label>
-                <input type="text" value="<%= detail.major %>" readonly class="form-control" name="major" id="sMajor" aria-describedby="helpId">
+                <label for="sMajor">Major</label>
+                <input type="text" value="" class="form-control" name="major" id="sMajor" aria-describedby="helpId">
                 <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
             <div class="form-group">
-                <label for="sFac">Faculty></label>
-                <input type="text" value="<%= detail.faculty %>" readonly class="form-control" name="faculty" id="sFac" aria-describedby="helpId">
+                <label for="sFac">Faculty</label>
+                <input type="text" value="" class="form-control" name="faculty" id="sFac" aria-describedby="helpId">
                 <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
             <div class="form-group">
-                <label for="sSub">Subject></label>
-                <input type="text" value="<%= detail.subject %>" readonly class="form-control" name="subject" id="sSub" aria-describedby="helpId">
+                <label for="sSub">Subject</label>
+                <input type="text" value="" class="form-control" name="subject" id="sSub" aria-describedby="helpId">
                 <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit And Add</button>
             <a href="/student" class="btn btn-link">Cancel</a>
         </form>
     </div>
